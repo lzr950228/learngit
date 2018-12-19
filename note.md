@@ -34,7 +34,7 @@ $ git commit -m "add 3 files."
 3.运行git diff命令可查看上次的修改内容是什么(将工作区与仓库里的文件进行对比)
 
 ## 时光机：
-1.运行git log命令可查看历史提交版本（可以使用git log --prrtty=oneline查看版本的简化版，开头一串为版本号）
+1.运行git log命令可查看历史提交版本（可以使用git log --pretty=oneline查看版本的简化版，开头一串为版本号）
 2.执行cat XXX.XX命令可查看XXX文件的当前版本
 3.执行git reset --hard HEAD^命令回退到上一个版本（在Git中，用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100）
 4.执行 git reset --hard 版本号,可回到所选版本
