@@ -58,7 +58,7 @@
     2)git push origin master
 
 ##分支管理
-###1.创建分支与合并
+### 1.创建分支与合并
     1）创建加切换分支（dev）git checkout -b dev
     (git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：
         $ git branch dev(创建分支)
@@ -70,17 +70,17 @@
     4）删除分支（dev）git branch -d dev
         删除多个分支（a\b\c）git branch -d a b c
     5）强行删除分支（dev）git branch -D dev
-###2.解决冲突
+### 2.解决冲突
     1）当两个分支同时修改一处地方，合并发成冲突的时候，可以在本地工作区对文件冲突的地方（Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容）进行手动修改后再重新进行上传
     2)查看分支合并的情况：
     （1）git log --graph（详细内容）
     （2）git log --graph --pretty=oneline（简化）
     （3）git log --graph --pretty=oneline --abbrev-commit（最简化）
-###3.分支管理策略
+### 3.分支管理策略
     1）一般地，分支合并时使用的是fast forward模式，但是这种模式合并分支后会丢掉合并的分支信息，所以不便于查找历史。如果想要强制禁用fast forward模式，就需要在merge的时候重新生成一个commit，这样从分支历史上就能看到分支信息。
         {git merge --no-ff -m "merge with no-ff" dev（合并分支并且禁用fast forward；重新创建一个-m）}
     2）一般地，master分支应该是非常稳点的（主分支），不用做编译。需要创建一个新的分支（dev）来进行编译(可以在dev上创建多个分支进行编译以及合并)。等dev确认编译完成后再与master进行合并。
-###4.BUG分支
+### 4.BUG分支
     当手中dev分支上的任务正在进行时，中途需要对其他项目进行操作（修改BUG），手中的dev分支任务无法进行存储合并：
     1）可以先使用“git stash”将dev的工作现场储藏起来；
     2)转移至需要工作的分支，例如master分支需要进行BUG修复：
@@ -89,7 +89,7 @@
         （3）对分支进行操作后进行合并，删除临时分支
     3）回到dev分支，执行git stash apply恢复后再执行git stash drop来删除stash的内容（或直接使用git stash pop可直接恢复并且删除stash内容）
     4）git stash list可以查看stash中的内容
-###5.多人协作
+### 5.多人协作
     1）查看远程仓库（命令：git remote/git remote -v）(fetch为抓取地址即克隆；push为推送地址）
     2）推送分支至对应分支上（例如dev）git push origin dev
     3)从远程仓库克隆的时候默认情况下只能看到本地的master分支，需要创建远程origin的dev分支到本地（创建的分支名称最好与远程分支的一致）：
